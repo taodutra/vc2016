@@ -1,0 +1,213 @@
+/* Variables */
+// $white: #fff;
+
+$light: #fff;
+$dark: #000;
+
+/**************** CSS RESET****************/
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+html {
+    /*background:#FFF;*/
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    border: 0;
+}
+
+address, caption, cite, code, dfn, em, th, var, optgroup {
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+del, ins {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+caption, th {
+    text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+sup {
+    vertical-align: baseline;
+}
+
+sub {
+    vertical-align: baseline;
+}
+
+legend {
+    color: #000;
+}
+
+input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: none;
+}
+
+input, button, textarea, select {
+    *font-size: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: auto;
+    margin: 0 auto;
+}
+
+/*********************************************/
+
+/* FONTS */
+
+@import url(https://fonts.googleapis.com/css?family=Marvel:400,400italic,700,700italic);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700);
+
+/*************************************
+ * MIXINS
+ */
+@mixin prefix($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+// keyframes mixin
+@mixin keyframes($name) {
+    $vendor: "";
+
+    @-webkit-keyframes #{$name} {
+        $vendor: -webkit-;
+
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        $vendor: -moz-;
+
+        @content;
+    }
+
+    @-ms-keyframes #{$name} {
+        $vendor: -ms-;
+
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+/* EXTENDABLES */
+.vcenter {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hcenter {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.fullcenter {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cover {
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.clearfix {
+    &:after {
+        display: block;
+        content: '';
+        width: 100%;
+        height: 0;
+        clear: both;
+    }
+}
+
+
+@include keyframes(swing) {
+    0% { @include prefix(transform, translate(-50%, -50%) rotate(-3deg)) }
+    25% { @include prefix(transform, translate(-50%, -50%) rotate(3deg)) }
+    50% { @include prefix(transform, translate(-50%, -50%) rotate(-2deg)) }
+    75% { @include prefix(transform, translate(-50%, -50%) rotate(1deg)) }
+    100% { @include prefix(transform, translate(-50%, -50%) rotate(0deg)) }
+}
+
+@include keyframes(swing-btn) {
+    0% { @include prefix(transform, translate(0, 0) rotate(-10deg)) }
+    25% { @include prefix(transform, translate(0, 0) rotate(10deg)) }
+    50% { @include prefix(transform, translate(0, 0) rotate(-5deg)) }
+    75% { @include prefix(transform, translate(0, 0) rotate(2deg)) }
+    100% { @include prefix(transform, translate(0, 0) rotate(0deg)) }
+}
+
+@include keyframes(blow) {
+    0% { @include prefix(transform, scale(1)) }
+    30% { @include prefix(transform, scale(1.15)) }
+    100% { @include prefix(transform, scale(1)) }
+}
+
+
+@include keyframes(no-blow) {
+    0% { @include prefix(transform, scale(1)) }
+    30% { @include prefix(transform, scale(1)) }
+    100% { @include prefix(transform, scale(1)) }
+}
+/* RULES */
+
+/* END RULES */

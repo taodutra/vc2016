@@ -1,0 +1,7 @@
+@import "vars";
+
+// test of @import inside a @media
+body{
+    background: $dark;
+}
+// it work's Rafa!!! =)
