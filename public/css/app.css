@@ -13,7 +13,7 @@
   left: 50%;
   transform: translateX(-50%); }
 
-.fullcenter {
+.fullcenter, .loading img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
@@ -572,6 +572,17 @@ p {
 #intro .graph {
   background: #fff; }
 
+.loading {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #f8893f; }
+  .loading img {
+    display: block;
+    position: absolute; }
+
 @media screen and (min-width: 850px) {
   /* Variables */
   /*********************************************/
@@ -588,7 +599,7 @@ p {
     left: 50%;
     transform: translateX(-50%); }
 
-  .fullcenter {
+  .fullcenter, .loading img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }

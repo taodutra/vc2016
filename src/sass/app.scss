@@ -123,6 +123,24 @@ p{
 
 
 
+// loading
+.loading{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    top: 0;
+    left: 0;
+
+    background:$orange;
+
+    img{
+        display: block;
+        position: absolute;
+        @extend .fullcenter;
+    }
+}
+
 
 @media screen and (min-width: 850px) {
 

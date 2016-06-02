@@ -106,7 +106,10 @@
 			</div>
 		</footer>
 		<!-- .footer -->
-		
+		<aside class="loading" id="loading">
+			<img src="img/loading.gif" alt="">
+		</aside>
+		<!-- loading -->
 	</body>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/slick.min.js"></script>
