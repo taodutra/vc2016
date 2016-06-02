@@ -1,7 +1,91 @@
 @import "vars";
 
 // test of @import inside a @media
-body{
-    background: $dark;
-}
+// body{
+//     background: $dark;
+// }
 // it work's Rafa!!! =)
+
+// navbar
+
+body.set-navbar-fixed-top-desktop{
+    .main-wrapper{
+        padding-top: 64px;
+    }
+}
+
+.navbar{
+
+    .container{
+        padding: 0 40px;
+    }
+    &.navbar-fixed-top-desktop{
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    ul{
+        display: block;
+        float: right;
+        height: 44px;
+        li{
+            float: left;
+            a{
+                display: block;
+                padding: 0 15px;
+                line-height: 64px;
+                font-size: 2.5em;
+                color: $light;
+                height: 64px;
+                font-weight: 400;
+
+                @include prefix(transition, all 0.25s);
+
+                &:hover, &.active{
+                    color: $orange;
+                    background: $light;
+                }
+            }
+        }
+    }
+    h1{
+        width: 90px;
+        float: left;
+    }
+}
+
+
+
+// main-wrapper
+
+.main-wrapper{
+    &>.container{
+        padding: 0 0 40px;
+    }
+}
+
+
+// area
+
+.area{
+    display: block;
+    .graph,
+    .text{
+        padding: 40px;
+        display: block;
+        width: 49%;
+        &.left{
+            float: left;
+        }
+        &.right{
+            float: right;
+        }
+        &.full{
+            padding: 40px 0;
+            width: 100%;
+            h2, p{
+                padding: 0 40px;
+            }
+        }
+    }
+}

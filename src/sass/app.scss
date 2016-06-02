@@ -1,9 +1,133 @@
 @import "vars";
+@import "reset";
+
+html, body{
+    height: 100%;
+
+    // mobile hack
+    // overflow-x: hidden;
+}
+
+body{
+    background: $light;
+    color: $gray-dark;
+    font-family: 'Source Sans Pro', Arial;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 62.5%;
+    // overflow-y: auto;
+}
+
+
+// general
+
+h2{
+    font-size: 3.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+
+    color: $orange;
+}
+p{
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+
+// container
+// fazer full
+.container{
+    @extend .clearfix;
+
+    margin: 0 auto;
+
+    display: block;
+    width: 100%;
+    // max-width: 1500px;
+}
+
+
+// navbar
+
+.navbar{
+    background: $orange;
+
+    width: 100%;
+
+    .container{
+        padding: 0 10px;
+    }
+
+    ul{
+        display: none;
+    }
+
+    h1{
+        display: block;
+        margin: 0 auto;
+        padding: 10px 0;
+
+        width: 50px;
+    }
+}
+
+
+// main-wrapper
+
+.main-wrapper{
+    min-height: 100%;
+    &>.container{
+        // min-height: 100%;
+        background: $light;
+        padding: 20px;
+    }
+}
+
+
+// footer
+.footer{
+    background: $gray-light;
+    padding: 40px 0;
+    p{
+        text-align: center;
+        font-size: 1.5em;
+        color: $gray-dark;
+        margin-bottom: 0;
+    }
+}
+
+
+
+// area
+
+.area{
+    @extend .clearfix;
+    .graph,
+    .text{
+        padding: 20px;
+    }
+    .graph{
+        background: $gray-light;
+    }
+}
+
+// intro
+
+#intro{
+    .graph{
+        background:$light;
+    }
+}
+
+
+
 
 @media screen and (min-width: 850px) {
 
     @import "desktop";
-        
+
 }
 
 @import "app-rafael";
