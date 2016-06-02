@@ -22,8 +22,8 @@ body{
 // general
 
 h2{
-    font-size: 3.5em;
-    font-weight: 700;
+    font-size: 4.0em;
+    font-weight: 300;
     text-transform: uppercase;
 
     margin-bottom: 20px;
@@ -109,7 +109,27 @@ p{
         padding: 20px;
     }
     .graph{
-        background: $gray-light;
+        // temp
+        // background: $gray-light;
+        text-align: center;
+        color: $orange;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        font-weight: 400;
+    }
+    .text{
+        position: relative;
+        &:before{
+            @extend .beforAfter;
+            opacity: 1;
+            position: absolute;
+            left: 0;
+            top: 2%;
+
+            height: 96%;
+            width: 1px;
+            background:$orange;
+        }
     }
 }
 
@@ -126,6 +146,7 @@ p{
 // loading
 .loading{
     position: fixed;
+    z-index: 11;
     height: 100%;
     width: 100%;
 

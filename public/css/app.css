@@ -33,6 +33,10 @@
   height: 0;
   clear: both; }
 
+.beforAfter, .area .text:before {
+  display: block;
+  content: ''; }
+
 @-webkit-keyframes swing {
   0% {
     -webkit-transform: translate(-50%, -50%) rotate(-3deg);
@@ -520,8 +524,8 @@ body {
   font-size: 62.5%; }
 
 h2 {
-  font-size: 3.5em;
-  font-weight: 700;
+  font-size: 4.0em;
+  font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 20px;
   color: #f8893f; }
@@ -567,13 +571,28 @@ p {
 .area .text {
   padding: 20px; }
 .area .graph {
-  background: #f4f4f4; }
+  text-align: center;
+  color: #f8893f;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  font-weight: 400; }
+.area .text {
+  position: relative; }
+  .area .text:before {
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    top: 2%;
+    height: 96%;
+    width: 1px;
+    background: #f8893f; }
 
 #intro .graph {
   background: #fff; }
 
 .loading {
   position: fixed;
+  z-index: 11;
   height: 100%;
   width: 100%;
   top: 0;
@@ -618,6 +637,10 @@ p {
     width: 100%;
     height: 0;
     clear: both; }
+
+  .beforAfter, .area .text:before {
+    display: block;
+    content: ''; }
 
   @-webkit-keyframes swing {
     0% {
@@ -1029,7 +1052,8 @@ p {
   .navbar.navbar-fixed-top-desktop {
     position: fixed;
     top: 0;
-    left: 0; }
+    left: 0;
+    z-index: 10; }
   .navbar ul {
     display: block;
     float: right;
@@ -1044,6 +1068,7 @@ p {
         color: #fff;
         height: 64px;
         font-weight: 400;
+        text-transform: uppercase;
         -webkit-transition: all 0.25s;
         -moz-transition: all 0.25s;
         -ms-transition: all 0.25s;
@@ -1066,12 +1091,23 @@ p {
       padding: 40px;
       display: block;
       width: 49%; }
+      .area .graph:before,
+      .area .text:before {
+        height: 90%;
+        top: 20px; }
       .area .graph.left,
       .area .text.left {
         float: left; }
+        .area .graph.left:before,
+        .area .text.left:before {
+          left: auto;
+          right: -2%; }
       .area .graph.right,
       .area .text.right {
         float: right; }
+        .area .graph.right:before,
+        .area .text.right:before {
+          left: -2%; }
       .area .graph.full,
       .area .text.full {
         padding: 40px 0;
@@ -1079,6 +1115,9 @@ p {
         .area .graph.full h2, .area .graph.full p,
         .area .text.full h2,
         .area .text.full p {
-          padding: 0 40px; } }
+          padding: 0 40px; }
+        .area .graph.full:before,
+        .area .text.full:before {
+          left: 20px; } }
 
 /*# sourceMappingURL=app.css.map */

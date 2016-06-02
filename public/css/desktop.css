@@ -33,6 +33,10 @@
   height: 0;
   clear: both; }
 
+.beforAfter {
+  display: block;
+  content: ''; }
+
 @-webkit-keyframes swing {
   0% {
     -webkit-transform: translate(-50%, -50%) rotate(-3deg);
@@ -443,7 +447,8 @@ body.set-navbar-fixed-top-desktop .main-wrapper {
 .navbar.navbar-fixed-top-desktop {
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+  z-index: 10; }
 .navbar ul {
   display: block;
   float: right;
@@ -458,6 +463,7 @@ body.set-navbar-fixed-top-desktop .main-wrapper {
       color: #fff;
       height: 64px;
       font-weight: 400;
+      text-transform: uppercase;
       -webkit-transition: all 0.25s;
       -moz-transition: all 0.25s;
       -ms-transition: all 0.25s;
@@ -480,12 +486,23 @@ body.set-navbar-fixed-top-desktop .main-wrapper {
     padding: 40px;
     display: block;
     width: 49%; }
+    .area .graph:before,
+    .area .text:before {
+      height: 90%;
+      top: 20px; }
     .area .graph.left,
     .area .text.left {
       float: left; }
+      .area .graph.left:before,
+      .area .text.left:before {
+        left: auto;
+        right: -2%; }
     .area .graph.right,
     .area .text.right {
       float: right; }
+      .area .graph.right:before,
+      .area .text.right:before {
+        left: -2%; }
     .area .graph.full,
     .area .text.full {
       padding: 40px 0;
@@ -494,5 +511,8 @@ body.set-navbar-fixed-top-desktop .main-wrapper {
       .area .text.full h2,
       .area .text.full p {
         padding: 0 40px; }
+      .area .graph.full:before,
+      .area .text.full:before {
+        left: 20px; }
 
 /*# sourceMappingURL=desktop.css.map */

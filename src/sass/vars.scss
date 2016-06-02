@@ -91,6 +91,10 @@ $orange: #f8893f;
     }
 }
 
+.beforAfter{
+    display: block;
+    content: '';
+}
 
 @include keyframes(swing) {
     0% { @include prefix(transform, translate(-50%, -50%) rotate(-3deg)) }

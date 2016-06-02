@@ -17,9 +17,10 @@ window.App = window.App || {
 		this.areasNav = document.getElementsByClassName('areas-nav');
 		this.areasActive = 0;
 		this.areasActiveOld = 0;
+		this.areasScrolling = 0; // int to scroll on click
 		window.onscroll = function (e) {
 			if(!App.isMobileView() ){
-				App.onScroll(window.pageYOffset);				
+				App.onScroll();				
 			}
 		} 
 
@@ -31,6 +32,8 @@ window.App = window.App || {
 
 		$scrollLink.on('click', function(e){
 			e.preventDefault();
+
+			App.areasScrolling = 1;
 
 			$t = $(this), target = $t.attr('href'), offset = App.isMobileView() ? 0 : App.headerHeight;
 
@@ -46,17 +49,19 @@ window.App = window.App || {
 
 		var y = $(target).position().top - offset;
 
-		$('html, body').stop().animate({
+		$('body').stop().animate({
 	        scrollTop: y
-	    }, 500);
+	    }, 500,function(){
+	    	App.areasScrolling = 0;
+			App.onScroll();
+	    });
 
-		// $('html,body').animate({ scrollTop: y+'px' }, 500);
 
 	},
 
-	onScroll: function(n){
+	onScroll: function(){
 
-		n = n || 0;
+		n = window.pageYOffset;
 
 		var objTop;
 
@@ -65,7 +70,7 @@ window.App = window.App || {
 			App.areasActive = n >= objTop ? i : App.areasActive;
 		});
 
-		if(App.areasActive == App.areasActiveOld) return;
+		if(App.areasActive === App.areasActiveOld || App.areasScrolling === 1) return;
 
 		// classList support - ie 11 =/
 		// remove active

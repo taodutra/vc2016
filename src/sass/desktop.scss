@@ -23,6 +23,7 @@ body.set-navbar-fixed-top-desktop{
         position: fixed;
         top: 0;
         left: 0;
+        z-index: 10;
     }
     ul{
         display: block;
@@ -38,6 +39,7 @@ body.set-navbar-fixed-top-desktop{
                 color: $light;
                 height: 64px;
                 font-weight: 400;
+                text-transform: uppercase;
 
                 @include prefix(transition, all 0.25s);
 
@@ -74,17 +76,33 @@ body.set-navbar-fixed-top-desktop{
         padding: 40px;
         display: block;
         width: 49%;
+
+        &:before{
+            height: 90%;
+            top: 20px;
+        }
+
         &.left{
             float: left;
+            &:before{
+                left: auto;
+                right: -2%;
+            }
         }
         &.right{
             float: right;
+            &:before{
+                left: -2%;
+            }
         }
         &.full{
             padding: 40px 0;
             width: 100%;
             h2, p{
                 padding: 0 40px;
+            }
+            &:before{
+                left: 20px;
             }
         }
     }
