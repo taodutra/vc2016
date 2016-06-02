@@ -13,12 +13,12 @@
 			<div class="container">
 				<h1><a href=""><img src="img/main-logo-white.png" alt=""></a></h1>
 				<ul>
-					<li><a href="#intro" rel="scroll">Intro</a></li>
-					<li><a href="#area-1" rel="scroll">Área 1</a></li>
-					<li><a href="#area-2" rel="scroll">Área 2</a></li>
-					<li><a href="#area-3" rel="scroll">Área 3</a></li>
-					<li><a href="#area-4" rel="scroll">Área 4</a></li>
-					<li><a href="#area-5" rel="scroll">Área 5</a></li>
+					<li><a href="#intro" rel="scroll" class="areas-nav active">Intro</a></li>
+					<li><a href="#area-1" rel="scroll" class="areas-nav">Área 1</a></li>
+					<li><a href="#area-2" rel="scroll" class="areas-nav">Área 2</a></li>
+					<li><a href="#area-3" rel="scroll" class="areas-nav">Área 3</a></li>
+					<li><a href="#area-4" rel="scroll" class="areas-nav">Área 4</a></li>
+					<li><a href="#area-5" rel="scroll" class="areas-nav">Área 5</a></li>
 				</ul>
 			</div>
 		</nav>

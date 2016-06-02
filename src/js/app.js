@@ -5,27 +5,36 @@ window.App = window.App || {
 	
 	init: function(){
 
-		console.log('init!');
-
+		// vars
 		this.headerHeight = $('.navbar').height();
 
-		console.log(this.headerHeight);
+		// actions
 
 		this.setLinks();
+
+		// scroll
+		this.areas = document.getElementsByClassName('area');
+		this.areasNav = document.getElementsByClassName('areas-nav');
+		this.areasActive = 0;
+		this.areasActiveOld = 0;
+		window.onscroll = function (e) {
+			if(!App.isMobileView() ){
+				App.onScroll(window.pageYOffset);				
+			}
+		} 
 
 	},
 
 	setLinks: function(){
 
-		var that = this,
-			$scrollLink = $('a[rel=scroll]');
+		var $scrollLink = $('a[rel=scroll]');
 
 		$scrollLink.on('click', function(e){
 			e.preventDefault();
 
-			$t = $(this), target = $t.attr('href'), offset = that.isMobileView() ? 0 : that.headerHeight;
+			$t = $(this), target = $t.attr('href'), offset = App.isMobileView() ? 0 : App.headerHeight;
 
-			that.scrollTo(target,offset);
+			App.scrollTo(target,offset);
 		});
 
 	},
@@ -37,13 +46,35 @@ window.App = window.App || {
 
 		var y = $(target).position().top - offset;
 
-		console.log(y);
-
 		$('html, body').stop().animate({
 	        scrollTop: y
 	    }, 500);
 
 		// $('html,body').animate({ scrollTop: y+'px' }, 500);
+
+	},
+
+	onScroll: function(n){
+
+		n = n || 0;
+
+		var objTop;
+
+		[].map.call(this.areas, function(obj, i) {
+			objTop = obj.offsetTop - App.headerHeight;
+			App.areasActive = n >= objTop ? i : App.areasActive;
+		});
+
+		if(App.areasActive == App.areasActiveOld) return;
+
+		// classList support - ie 11 =/
+		// remove active
+		App.areasNav[App.areasActiveOld].className = 'areas-nav';
+		
+		// apply active
+		App.areasNav[App.areasActive].className = 'areas-nav active';
+
+		App.areasActiveOld = App.areasActive;
 
 	},
 
